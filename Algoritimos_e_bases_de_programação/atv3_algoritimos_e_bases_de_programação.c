@@ -32,12 +32,12 @@ void inicializar()
 }
 
 // A função tela() tem como objetivo exibir o estado atual do "tabuleiro" do jogo num console limpo de informações.
-// Usando system("clear") a função "limpa" a tela do terminal/console, 
+// Usando system("clear") a função "limpa" a tela do terminal/console,
 // Utilizando algumas chamadas de printf, forma as três linhas do tabuleiro.
 // Usando o %c exibe  o valor armazenado em cada posição do vetor armpos, podendo assim mostrar o estado atual de cada posição do tabuleiro
 // A função é chamada a cada rodada do jogo, antes do jogador escolher uma nova posição
 // A função também é chamada quando ocorre vitória ou empate para mostrar o estado final do tabuleiro.
-// 
+//
 
 void tela()
 {
@@ -164,7 +164,7 @@ void main()
             {
                 tela();
                 printf("Deu velha!\n");
-                sleep(3);""
+                sleep(3);
                 printf("Deseja continuar jogando [s/n]: ");
                 scanf(" %c", &con);
             }
