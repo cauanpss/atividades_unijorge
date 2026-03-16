@@ -34,7 +34,10 @@ void inicializar()
 // A função tela() tem como objetivo exibir o estado atual do "tabuleiro" do jogo num console limpo de informações.
 // Usando system("clear") a função "limpa" a tela do terminal/console, 
 // Utilizando algumas chamadas de printf, forma as três linhas do tabuleiro.
-// usando o %c exibe  o valor armazenado em cada posição do vetor armpos, podendo assim mostrar o estado atual de cada posição do tabuleiro
+// Usando o %c exibe  o valor armazenado em cada posição do vetor armpos, podendo assim mostrar o estado atual de cada posição do tabuleiro
+// A função é chamada a cada rodada do jogo, antes do jogador escolher uma nova posição
+// A função também é chamada quando ocorre vitória ou empate para mostrar o estado final do tabuleiro.
+// 
 
 void tela()
 {
@@ -49,6 +52,10 @@ void tela()
 // A função simbolo() tem como objetivo controlar/alternar o estado atual do símbolo armazenado em si.
 // com uso da condicional if, verifica o estado atual da variável, e troca o símbolo com base no símbolo atual armazenado, garantindo a alternancia entre os jogadores.
 // Ao fim, retorna o novo símbolo.
+// A função é chamada sempre que uma jogada válida é realizada, antes de armazenar o símbolo na posição escolhida do tabuleiro.
+// O valor retornado é usado para preencher o vetor armpos, representando a jogada realizada no tabuleiro.
+// A alteração da variável si influencia diretamente o que será exibido pela função tela()
+// Ajuda também na verificação de vitória realizada pela função triunfo(), pois os símbolos armazenados em armpos são usados para verificar combinações vencedoras
 
 char simbolo()
 {
