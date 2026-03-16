@@ -61,21 +61,21 @@ int triunfo() // Verifica se algum jogador ganhou a partida, comparando se exist
 {
     if (jog[1] == jog[2] && jog[2] == jog[3])
         return 1; // linha 1
-    if (jog[4] == jog[5] && jog[5] == jog[6])
+    else if (jog[4] == jog[5] && jog[5] == jog[6])
         return 1; // linha 2
-    if (jog[7] == jog[8] && jog[8] == jog[9])
+    else if (jog[7] == jog[8] && jog[8] == jog[9])
         return 1; // linha 3
 
-    if (jog[1] == jog[4] && jog[4] == jog[7])
+    else if (jog[1] == jog[4] && jog[4] == jog[7])
         return 1; // coluna 1
-    if (jog[2] == jog[5] && jog[5] == jog[8])
+    else if (jog[2] == jog[5] && jog[5] == jog[8])
         return 1; // coluna 2
-    if (jog[3] == jog[6] && jog[6] == jog[9])
+    else if (jog[3] == jog[6] && jog[6] == jog[9])
         return 1; // coluna 3
 
-    if (jog[1] == jog[5] && jog[5] == jog[9])
+    else if (jog[1] == jog[5] && jog[5] == jog[9])
         return 1; // diagonal
-    if (jog[3] == jog[5] && jog[5] == jog[7])
+    else if (jog[3] == jog[5] && jog[5] == jog[7])
         return 1; // diagonal
 
     return 0;
@@ -111,8 +111,11 @@ int main() // Inicializa a função principal, que controla a execução do jogo
                         vencedor = 'X'; // Altera a  variável para o vencedor correto
                     }
 
-                    printf("Parabéns! O jogador ""%c"" venceu a partida!\n", vencedor); // exibe a mensagem de vitória
-                    break;                                                          // Encerra o jogo
+                    printf("Parabéns! O jogador "
+                           "%c"
+                           " venceu a partida!\n",
+                           vencedor); // exibe a mensagem de vitória
+                    break;            // Encerra o jogo
                 }
             }
         }
@@ -129,6 +132,6 @@ int main() // Inicializa a função principal, que controla a execução do jogo
         system("clear"); // limpa o terminal antes da próxima jogada
         tela();          // mostra o tabuleiro novamente
     } while (nj < 9);
-    
+
     return 0;
 }
