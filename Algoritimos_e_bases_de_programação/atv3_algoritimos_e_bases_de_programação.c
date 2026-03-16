@@ -15,7 +15,8 @@ int po, nj, res;
 // Inicializa as variaveis: si = "X" (primeiro jogador usara o simbolo "X"), po = 0 (inicializa a variável que armazenara a jogada escolhida, usando 0 por estar fora do range do tabuleiro que vai de 1 a 9)
 // nj = 0 (Inicializa a variável responsável por contar o número de jogadas), res = 0 (Responsável por armazenar o resultado da partida), con ='n' (responsável por controlar a continuidade da partida)
 // Loop for, responsável por percorrer todos os índices do vetor armpos convertendo o número "x" em um texto (string) com o método -sprintf- e armazenando esse valor na posição x do vetor.
-
+// A função é chamada no início da execução do programa dentro de main(), e também chamada novamente caso os jogadores queiram jogar novamente após o término da partida.
+// A função também prepara os dados que serão utilizados pela função tela()
 
 void inicializar()
 {
