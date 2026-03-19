@@ -54,8 +54,8 @@ void tela()
 // Ao fim, retorna o novo símbolo.
 // A função é chamada sempre que uma jogada válida é realizada, antes de armazenar o símbolo na posição escolhida do tabuleiro.
 // O valor retornado é usado para preencher o vetor armpos, representando a jogada realizada no tabuleiro.
-// A alteração da variável si influencia diretamente o que será exibido pela função tela()
-// Ajuda também na verificação de vitória realizada pela função triunfo(), pois os símbolos armazenados em armpos são usados para verificar combinações vencedoras
+// A alteração da variável si influencia diretamente o que será exibido pela função tela().
+// Ajuda também na verificação de vitória realizada pela função triunfo(), pois os símbolos armazenados em armpos são usados para verificar combinações vencedoras.
 
 char simbolo()
 {
@@ -122,7 +122,7 @@ int triunfo()
     return r;
 }
 
-void main()
+int main()
 {
     setlocale(LC_ALL, "");
     inicializar();
@@ -175,4 +175,6 @@ void main()
     } while ((nj < 9) && (res == 0));
     system("clear");
     printf("Fim de Jogo");
+
+    return 0;
 }
