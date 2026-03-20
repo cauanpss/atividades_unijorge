@@ -17,5 +17,5 @@ int main(){
     printf("A multiplicação de %.2f e %.2f é %.2f.",n1, n2, mult);
 
 
-    return 1;
+    return 0;
 }

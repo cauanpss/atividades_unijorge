@@ -19,5 +19,5 @@ int main(){
 
     printf("A média das notas é: %.2f", media);
 
-    return 1;
+    return 0;
 }

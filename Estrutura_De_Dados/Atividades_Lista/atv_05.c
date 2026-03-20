@@ -12,5 +12,5 @@ int main(){
     int n2 = n1 - 1;
     printf("O número antecessor a %d é %d", n1, n2);
 
-    return 1;
+    return 0;
 }

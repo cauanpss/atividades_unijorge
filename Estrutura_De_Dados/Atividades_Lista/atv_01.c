@@ -10,5 +10,5 @@ int main(){
         printf("%d \n", i);
     }  
 
-    return 1;
+    return 0;
 }

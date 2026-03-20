@@ -21,5 +21,5 @@ int main(){
     }
     printf("O total de números pares é: %d \nO total de números impares é: %d \n",pares, impares);
     
-    return 1;
+    return 0;
 }

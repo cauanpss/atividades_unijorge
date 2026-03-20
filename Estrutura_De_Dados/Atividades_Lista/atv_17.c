@@ -16,5 +16,5 @@ int main(){
     hipotenusa = sqrt(pow(cateto_adjacente, 2) + pow(cateto_oposto, 2));
     printf("A hipotenusa tem valor %.2f", hipotenusa);
     
-    return 1;
+    return 0;
 }

@@ -16,5 +16,5 @@ int main(){
     
     printf("O resto da divisão entre %d e %d é %d",n1, n2, resto);
 
-    return 1;
+    return 0;
 }

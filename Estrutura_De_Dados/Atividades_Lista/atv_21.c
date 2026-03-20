@@ -17,5 +17,5 @@ int main(){
     }
     printf("%d", produto);
 
-    return 1;
+    return 0;
 }

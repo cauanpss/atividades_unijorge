@@ -12,5 +12,5 @@ int main(){
     int n2 = sqrt(n1);
     printf("a raiz quadrada de  %d é %d", n1, n2);
 
-    return 1;
+    return 0;
 }

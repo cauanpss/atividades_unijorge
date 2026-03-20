@@ -18,5 +18,5 @@ int main(){
     
     printf("A média de idade das 3 pessoas é: %d ", media);
     
-    return 1;
+    return 0;
 }

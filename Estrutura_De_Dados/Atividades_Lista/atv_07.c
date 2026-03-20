@@ -12,5 +12,5 @@ int main(){
     int n2 = pow(n1, 2);
     printf(" O quadrado de  %d é %d", n1, n2);
 
-    return 1;
+    return 0;
 }

@@ -18,5 +18,5 @@ int main(){
     }
     printf("O total de números positivos é: %d", positivos);
     
-    return 1;
+    return 0;
 }

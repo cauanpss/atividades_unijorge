@@ -16,5 +16,5 @@ int main(){
     
     printf("O quociente da divisão entre %d e %d é %d",n1, n2, quoc);
 
-    return 1;
+    return 0;
 }

@@ -16,5 +16,5 @@ int main(){
         printf("%d", num);
     }
 
-    return 1;
+    return 0;
 }

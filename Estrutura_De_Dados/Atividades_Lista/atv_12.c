@@ -20,5 +20,5 @@ int main(){
         printf("Esse é um número ímpar.");
     }
 
-    return 1;
+    return 0;
 }

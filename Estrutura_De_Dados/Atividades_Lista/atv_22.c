@@ -17,5 +17,5 @@ int main(){
     scanf("%d", &n1);
     tabuada(n1);
     
-    return 1;
+    return 0;
 }

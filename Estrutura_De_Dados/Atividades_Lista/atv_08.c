@@ -18,5 +18,5 @@ int main(){
     printf(" %d elevado a %d  é %d", n1, n2, pow_n1_n2);
     printf(" %d elevado a %d  é %d", n2, n1, pow_n2_n1);
 
-    return 1;
+    return 0;
 }

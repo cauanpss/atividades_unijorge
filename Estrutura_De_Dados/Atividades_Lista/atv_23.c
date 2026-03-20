@@ -82,5 +82,5 @@ int main()
     printf("A média de altura das mulheres é: %.2f\n", media_altura_mulheres);
     printf("O percentual de mulheres abaixo de 1,68 é: %.2f%%", percentual_abaixo_1_68);
 
-    return 1;
+    return 0;
 }

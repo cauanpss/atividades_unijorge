@@ -17,5 +17,5 @@ int main(){
     printf("A soma de %.2f e %.2f é %.2f.",n1, n2, sum);
 
 
-    return 1;
+    return 0;
 }
