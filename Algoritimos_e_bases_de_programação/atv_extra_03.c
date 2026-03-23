@@ -138,20 +138,21 @@ _Bool consultar(int n){
     }
     return enc;
 }
-
-void alterar(int nn,int p){
-    lista[p]=nn;
-    printf("Número alterado com sucesso!\n");
-    sleep(3);
+// Função responsável por alterar um valor já existente na lista
+void alterar(int nn,int p){ // O valor da posição vem pré-validado na sua condição de existência, portanto:
+    lista[p]=nn; // o novo número passado como parâmetro substitui diretamente o valor da posição.
+    printf("Número alterado com sucesso!\n"); // Exibibe uma mensagem de sucesso para o usuário .
+    sleep(3); // Tempo para permitir a visualiação da mensagem.
 }
 
-void excluir(int p){
-    for(int i=p;i<idg-1;i++){
-        lista[i]=lista[i+1];    
+// Função vazia responsável por excluir um elemanto da lista
+void excluir(int p){ // É passsado a posição 'p' do valor cuja existência verificada
+    for(int i=p;i<idg-1;i++){ // No laço for é deslocado todos os elementos à direita da posição removida uma posição para esquerda
+        lista[i]=lista[i+1]; 
     }
-    idg--;
-    printf("Número excluído com sucesso!\n");
-    sleep(3);
+    idg--; // Reduz o tamnho da lista após remoção para manipulação lógica da lista
+    printf("Número excluído com sucesso!\n"); // Feedback ao usuário informando sucesso da operação.
+    sleep(3); // Tempo de pausa com o comando sleep para exibir mensagem na tela e o looping rodar novamente o menu.
 }
 
 void imprimir(){
