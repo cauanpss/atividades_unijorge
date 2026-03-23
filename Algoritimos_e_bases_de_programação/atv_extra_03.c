@@ -127,8 +127,8 @@ void cadastrar()
                                                  // usando idg+1 para mostrar a posição a partir do 1 e Ñ do 0
         scanf("%d", &lista[idg]);                // lê um inteiro digitado pelo usuário e armazena diretamente na posição 'idg' do array lista
         idg++;                                   // incrementa o idg, avançando para a próxima posição e atualizando o contador de elementos cadastrados
-        if (idg < 5)// verifica se ainda há espaço no idg (capacidad máxima: 5)
-        {                                                   
+        if (idg < 5)                             // verifica se ainda há espaço no idg (capacidad máxima: 5)
+        {
             printf("Deseja continuar cadastrando [s/n]: "); // se tiver espaço, pergunta ao usuário
                                                             // se deseja cadastrar mais um número
             scanf(" %c", &r);                               // lê o caractere digitado; o espaço antes de %c descarta caracteres residuais no buffer(como '\n')
@@ -141,18 +141,20 @@ void cadastrar()
     //  se o usuário digitou 'n' OU a lista está cheia, o loop encerra
 }
 
-_Bool consultar(int n)
-{
-    _Bool enc = false;
-    idc = 0;
-    while ((enc == false) && (idc < idg))
-    {
-        if (lista[idc] == n)
-        {
-            enc = true;
-        }
-        else
-        {
+// A função consultar(int n) foi construída de forma a retornar um valor booleano (Verdadeiro ou Falso), e toda vez que ela é chamada, o estado da busca ("enc") é retornado.
+// A função começa declarando "enc" como falsa. O "idc", variável responsável por percorrer a lista, começa com valor 0 para iniciar a busca pela primeira posição (índice 0).
+// Depois, é feita uma estrutura de repetição onde a condição para continuar é o número não ter sido encontrado ("enc" falso) e o índice atual ser menor que a quantidade de números cadastrados ("idg").
+// Dentro da repetição, um "if" identifica se o número digitado é igual ao número guardado naquela posição da lista. Se forem iguais, "enc" torna-se verdadeiro e o laço para.
+// Caso não sejam iguais, o "idc" ganha +1 e pula para a próxima casa.
+// Se o laço terminar e nenhum número corresponder, o valor de "enc" retorna como falso.
+
+_Bool consultar(int n){
+    _Bool enc=false;
+    idc=0;
+    while((enc==false)&&(idc<idg)){
+        if (lista[idc]==n){
+            enc=true;
+        }else{
             idc++;
         }
     }
@@ -230,92 +232,92 @@ void ordenardecrescente()
     sleep(3);
 }
 
-void main()
+void main() // Função principal, reponsavel por reunir todas as outras.
 {
-    setlocale(LC_ALL, "português");
-    inicializar();
+    setlocale(LC_ALL, "português"); // Serve para o programa entender acentos e caracteres da nossa língua.
+    inicializar();                  // Chama a função que limpa a lista e zera as variáveis antes de tudo começar.
     do
-    {
-        int vnn;
-        menu();
-        printf("Escolha a opção desejada: ");
-        scanf("%d", &op);
-        system("clear");
+    {                                         // Estrutura de repetição responsável pelo programa continuar funcionando.
+        int vnn;                              // Cria uma variável local para guardar o "valor do novo número" quando o usuário alterar algo.
+        menu();                               // Chama o desenho do menu na tela.
+        printf("Escolha a opção desejada: "); // Pede para o usuário escolher uma das opções do menu.
+        scanf("%d", &op);                     // Guarda a opção escolhida na memória.
+        system("clear");                      // Limpa o console antes de apresentar a função escolhida.
         switch (op)
-        {
+        { // Estrutura de casos em função da variável op.
         case 1:
             if (idg < 5)
-            {
-                cadastrar();
+            {                // Estrutura condicional que analisa se a quantidade de números digitados não ultrapassa 5, já que é o valor máximo estabelecido para uma lista.
+                cadastrar(); // No caso de não ultrapassar o limite, chama a função cadastrar.
             }
             else
             {
-                printf("Tabela cheia!\n");
-                sleep(3);
+                printf("Tabela cheia!\n"); // Caso esteja cheia, aparece uma mensagem para o usuário indicando o limite.
+                sleep(3);                  // Pede para o sistema pausar por 3 segundos.
             }
-            break;
+            break; // O caso 1 para e retorna ao menu.
         case 2:
-            printf("Digite o número que deseja procurar: ");
-            scanf("%d", &num);
+            printf("Digite o número que deseja procurar: "); // Mensagem para indicar ao usuário que digite um número que ele queira verificar na lista cadastrada.
+            scanf("%d", &num);                               // Guarda o número que ele quer consultar na variável num.
             if (consultar(num) == true)
-            {
-                printf("Número consta na lista\n");
+            {                                       // Passa o valor de "num" como parâmetro para a função consultar e verifica: caso retorne verdadeiro, exibe uma mensagem.
+                printf("Número consta na lista\n"); // Mensagem que indica ao usuário que o número consultado pertence à lista.
             }
             else
-            {
-                printf("Número não consta na lista\n");
+            {                                           // Condição contrária à estabelecida no if anterior.
+                printf("Número não consta na lista\n"); // Mensagem que indica ao usuário que o número consultado não pertence à lista.
             }
-            sleep(3);
-            break;
+            sleep(3); // Pede para o sistema pausar por 3 segundos.
+            break;    // O caso 2 para e retorna ao menu.
         case 3:
-            printf("Digite o número que deseja alterar: ");
-            scanf("%d", &num);
+            printf("Digite o número que deseja alterar: "); // Mensagem pedindo ao usuário para digitar o número que deseja alterar na lista.
+            scanf("%d", &num);                              // Guarda esse número na memória.
             if (consultar(num) == true)
-            {
-                printf("Digite o novo número: ");
-                scanf("%d", &vnn);
-                alterar(vnn, idc);
+            {                                     // Verifica se a função consultar retorna verdadeiro, indicando que esse número pertence à lista.
+                printf("Digite o novo número: "); // Mensagem pedindo para o usuário digitar um novo número para entrar no lugar do anterior.
+                scanf("%d", &vnn);                // Guarda esse valor na variável vnn.
+                alterar(vnn, idc);                // Chama a função alterar passando vnn e idc (posição encontrada).
             }
             else
-            {
-                printf("Número não consta na lista\n");
+            {                                           // Condição contrária à estabelecida no if anterior.
+                printf("Número não consta na lista\n"); // Indica ao usuário que o número digitado não pertence à lista.
             }
-            sleep(3);
-            break;
+            sleep(3); // Pede para o sistema pausar por 3 segundos.
+            break;    // O caso 3 para e retorna ao menu.
         case 4:
-            printf("Digite o número que deseja excluir: ");
-            scanf("%d", &num);
+            printf("Digite o número que deseja excluir: "); // Mensagem pedindo para o usuário digitar o número que deseja excluir.
+            scanf("%d", &num);                              // Guarda esse número na memória.
             if (consultar(num) == true)
-            {
-                excluir(idc);
+            {                 // Compara o valor da função consultar; caso verdadeiro, procede com a exclusão.
+                excluir(idc); // Chama a função excluir usando o idc, removendo o número da posição correspondente.
             }
             else
-            {
-                printf("Número não consta na lista\n");
+            {                                           // Caso a função retorne como falso, aparece outra mensagem.
+                printf("Número não consta na lista\n"); // Indica ao usuário que o número digitado não pertence à lista.
             }
-            sleep(3);
-            break;
+            sleep(3); // Pede para o sistema pausar por 3 segundos.
+            break;    // O caso 4 para e retorna ao menu.
         case 5:
-            ordenarcrescente();
-            break;
+            ordenarcrescente(); // Chama a função ordenarcrescente, que organiza os números da lista em ordem crescente.
+            break;              // O caso 5 para e retorna ao menu.
         case 6:
-            ordenardecrescente();
-            break;
+            ordenardecrescente(); // Chama a função ordenardecrescente, que organiza os números da lista em ordem decrescente.
+            break;                // O caso 6 para e retorna ao menu.
         case 7:
-            imprimir();
-            break;
+            imprimir(); // Chama a função imprimir, que exibe no console os números atuais da lista.
+            break;      // O caso 7 para e retorna ao menu.
         case 8:
-            cor();
-            break;
-        default:
+            cor(); // Chama a função cor, exibindo o menu para alterar as cores dos caracteres no console.
+            break; // O caso 8 para e retorna ao menu.
+        default:   // Caso a variável op não corresponda a nenhum dos casos anteriores.
             if (op != 9)
-            {
-                printf("Opção inválida!\n");
-                sleep(3);
-                break;
+            {                                // Verifica se a opção é diferente de 9 (que seria sair).
+                printf("Opção inválida!\n"); // Mensagem para opções fora do intervalo de 1 a 9.
+                sleep(3);                    // Pede para o sistema pausar por 3 segundos.
+                break;                       // Para o default e retorna ao menu.
             }
         }
-    } while (op != 9);
-    system("clear");
-    printf("Sistema finalizado com sucesso!");
+    } while (op != 9); // Condição de repetição: enquanto op for diferente de 9, o programa continua.
+    system("clear");                           // Caso o usuário digite 9, limpa a tela.
+    printf("Sistema finalizado com sucesso!"); // Indica ao usuário que o sistema foi encerrado.
 }
