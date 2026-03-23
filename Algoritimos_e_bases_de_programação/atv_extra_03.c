@@ -8,15 +8,29 @@
 // \033[1;35m → roxo
 // \033[1;36m → ciano
 
-
-#include <stdio.h>
-#include <stdlib.h>
-#include <locale.h>
-#include <unistd.h>
-#include <ctype.h>
-#include <stdbool.h>
+#include <stdio.h> // Biblioteca padrão de entrada e saída (printf, scanf)
+#include <stdlib.h> // Biblioteca para funções do sistema (system)
+#include <locale.h> // Biblioteca para configuração de idioma (setlocale)
+#include <unistd.h> // Biblioteca para controle de tempo (sleep)
+#include <ctype.h> // Biblioteca para manipulação de caracteres (tolower)
+#include <stdbool.h> // Biblioteca que permite o uso de booleanos (true/false)
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Variáveis globais utilizadas no sistema.
+// op -> armazena a opção escolhida pelo usuário no menu.
+// num -> armazena o número digitado para operações como consulta, alteração ou exclusão.
+// idc -> guarda a posição onde um número foi encontrado na função consultar.
+// idg -> indica a quantidade de elementos cadastrados na lista.
+// lista[5] -> vetor que armazena os números digitados pelo usuário (máximo de 5).
 
 int op, num, idc, idg, lista[5];
+
+
+//A função inicializar() é responsável por deixar o sistema pronto para uso.
+// Nela, todas as variáveis globais recebem seus valores iniciais.
+// A variável op é definida como 0, indicando que nenhuma opção foi selecionada.
+// As variáveis idc e idg também são zeradas, mostrando que a lista ainda está vazia.
+// Depois disso, um laço for percorre todo o vetor lista, atribuindo o valor 0 para cada posição.
+// Essa função é chamada no começo do programa para garantir que tudo comece organizado.
 
 void inicializar(){
     op=0;
@@ -26,6 +40,14 @@ void inicializar(){
         lista[i]=0;
     }
 }
+
+// A função cor() permite ao usuário alterar a cor do texto no terminal.
+// Ela exibe um menu com várias opções de cores disponíveis.
+// O usuário escolhe uma opção e o programa aplica o código ANSI correspondente.
+// O comando system("clear") é usado para limpar a tela antes de aplicar a cor.
+// Caso o usuário digite uma opção inválida, o sistema informa o erro.
+// Essa função é chamada quando o usuário escolhe a opção de mudar a cor no menu principal.
+
 
 void cor(){
     int opc;
@@ -68,6 +90,8 @@ void cor(){
             break;
     }
 }
+
+
 
 void menu(){
     system("clear");
